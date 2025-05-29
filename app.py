@@ -7,7 +7,7 @@ import re # Import regex for parsing
 # Load API key from Streamlit secrets for secure deployment
 try:
     # Attempt to retrieve the API key from Streamlit secrets
-    API_KEY = st.secrets["AIzaSyC0aXi4NViVKr5GW8f3my1fK6s2iyZ1u1k"]
+    API_KEY = st.secrets["GOOGLE_API_KEY"]
     genai.configure(api_key=API_KEY)
     # Using gemini-1.5-flash for speed and free tier compatibility
     model = genai.GenerativeModel("gemini-2.0-flash")
