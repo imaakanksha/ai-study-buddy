@@ -10,7 +10,7 @@ try:
     API_KEY = st.secrets["AIzaSyC0aXi4NViVKr5GW8f3my1fK6s2iyZ1u1k"]
     genai.configure(api_key=API_KEY)
     # Using gemini-1.5-flash for speed and free tier compatibility
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-2.0-flash")
     st.sidebar.success("Gemini API Key Loaded Successfully!") # Optional: Confirm key load
 except KeyError:
     # Handle missing secret
