@@ -90,8 +90,7 @@ def generate_quiz(text):
     """Generates a multiple-choice quiz from the provided text using Gemini API."""
     if not text:
         return "Please provide some text to generate a quiz from."
-    prompt = f"Generate a multiple-choice quiz (around 3-5 questions) based on the key information in the following text. For each question, provide 4 options (A, B, C, D) and indicate the correct answer. Format each question strictly as:\nQuestion: [Your Question Here]\nA) [Option A]\nB) [Option B]\nC) [Option C]\nD) [Option D]\nAnswer: [Correct Option Letter]\n\nEnsure there is a blank line between each question block.\n\n---\n{text}
----"
+    prompt = f"Generate a multiple-choice quiz (around 3-5 questions) based on the key information in the following text. For each question, provide 4 options (A, B, C, D) and indicate the correct answer. Format each question strictly as:\nQuestion: [Your Question Here]\nA) [Option A]\nB) [Option B]\nC) [Option C]\nD) [Option D]\nAnswer: [Correct Option Letter]\n\nEnsure there is a blank line between each question block.\n\n---\n{text}---"
     quiz_text = generate_with_gemini(prompt)
     if quiz_text.startswith("An error occurred") or quiz_text.startswith("Content generation") or quiz_text.startswith("Error:"):
         return quiz_text # Return error/block message directly
@@ -115,8 +114,7 @@ def generate_answer(context, question):
         return "Please provide study material first."
     if not question:
         return "Please enter a question."
-    prompt = f"Based *only* on the following text, answer the question provided. If the answer cannot be found in the text, say 'The answer is not found in the provided text.'\n\nContext Text:\n---\n{context}
----\n\nQuestion: {question}"
+    prompt = f"Based *only* on the following text, answer the question provided. If the answer cannot be found in the text, say 'The answer is not found in the provided text.'\n\nContext Text:\n---\n{context}---\n\nQuestion: {question}"
     return generate_with_gemini(prompt)
 
 # --- Application Structure ---
