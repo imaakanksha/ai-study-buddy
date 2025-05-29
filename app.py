@@ -72,8 +72,7 @@ def generate_flashcards(text):
     """Generates flashcards (Q/A pairs) from the provided text using Gemini API."""
     if not text:
         return "Please provide some text to generate flashcards from."
-    prompt = f"Generate flashcards based on the key information in the following text. Format each flashcard strictly as:\nQuestion: [Your Question Here]\nAnswer: [Your Answer Here]\n\nEnsure there is a blank line between each flashcard.\n\n---\n{text}
----"
+    prompt = f"Generate flashcards based on the key information in the following text. Format each flashcard strictly as:\nQuestion: [Your Question Here]\nAnswer: [Your Answer Here]\n\nEnsure there is a blank line between each flashcard.\n\n---\n{text}---"
     flashcards_text = generate_with_gemini(prompt)
     if flashcards_text.startswith("An error occurred") or flashcards_text.startswith("Content generation") or flashcards_text.startswith("Error:"):
         return flashcards_text # Return error/block message directly
