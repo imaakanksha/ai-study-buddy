@@ -3,6 +3,8 @@ import google.generativeai as genai
 import os
 import re # Import regex for parsing
 
+# --- Application Structure ---
+st.set_page_config(page_title="AI Study Buddy", layout="wide")
 # --- Configuration ---
 # Load API key from Streamlit secrets for secure deployment
 try:
@@ -117,8 +119,7 @@ def generate_answer(context, question):
     prompt = f"Based *only* on the following text, answer the question provided. If the answer cannot be found in the text, say 'The answer is not found in the provided text.'\n\nContext Text:\n---\n{context}---\n\nQuestion: {question}"
     return generate_with_gemini(prompt)
 
-# --- Application Structure ---
-st.set_page_config(page_title="AI Study Buddy", layout="wide")
+
 
 st.title("📚 AI Study Buddy")
 st.caption("Upload your study material (text) and let AI help you learn!")
