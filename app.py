@@ -65,9 +65,7 @@ def generate_summary(text):
     """Generates a concise summary of the provided text using Gemini API."""
     if not text:
         return "Please provide some text to summarize."
-    prompt = f"Please provide a concise summary of the following text, highlighting the key points and concepts suitable for studying:
-\n---\n{text}
----"
+    prompt = f"Please provide a concise summary of the following text, highlighting the key points and concepts suitable for studying: \n---\n{text}---"
     return generate_with_gemini(prompt)
 
 def generate_flashcards(text):
